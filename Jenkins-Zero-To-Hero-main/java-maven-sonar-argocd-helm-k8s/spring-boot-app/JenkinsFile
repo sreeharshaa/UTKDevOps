@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'main', url: 'https://github.com/sunitabachhav2007/Jenkins-Zero-To-Hero.git'
+        //git branch: 'main', url: 'https://github.com/sreeharshaa/UTKDevOps.git'
       }
     }
     stage('Build and Test') {
@@ -48,13 +48,13 @@ pipeline {
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
-            GIT_USER_NAME = "sunitabachhav2007"
+            GIT_USER_NAME = "sreeharshaa"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    git config user.email "sunitabachhav2007@gmail.com"
-                    git config user.name "Sunita Sonawane"
+                    git config user.email "harsha.ve10@gmail.com"
+                    git config user.name "sreeharshaa"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i -e "s/ultimate-cicd.*/ultimate-cicd:${BUILD_NUMBER}/g"  java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
