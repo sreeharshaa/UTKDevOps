@@ -2,8 +2,8 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_instance" "demo-server" {
-    ami = "ami-022e1a32d3f742bd8"
+resource "aws_instance" "utkdevops-server" {
+    ami = "ami-06c68f701d8090592"
     instance_type = "t2.micro"
-    key_name = "dpp"
+    key_name = "utkdevops"
 }
